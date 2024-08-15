@@ -4,7 +4,7 @@ Library    SeleniumLibrary
 *** Variables ***
 ${DEFAULT_BROWSER}                  Chrome
 ${DEFAULT_URL}                      https://magento.softwaretestingboard.com/
-${DEFAULT_SPEED}                    0.3
+${DEFAULT_SPEED}                    0.5
 ${DEFAULT_TIMEOUT}                  15
 ${HOMEPAGE_TITLE}                   Home Page
 

@@ -1,6 +1,7 @@
 *** Settings ***
-Library     SeleniumLibrary
-Resource    luma_objects.robot
+Documentation   Keywords for luma_tests_suite
+Library         SeleniumLibrary
+Resource        luma_objects.robot
 
 *** Keywords ***
 Open Luma
@@ -9,6 +10,12 @@ Open Luma
     Maximize Browser Window
     Set Selenium Speed    ${speed}
     Title Should Be  ${HOMEPAGE_TITLE}
+
+Go To Home Page
+    ${title} =  Get Title
+    Run Keyword If    '${title}' != '${HOMEPAGE_TITLE}'
+    ...    Go To    ${DEFAULT_URL}
+    Title Should Be    ${HOMEPAGE_TITLE}
 
 Select Product To Cart
     Wait Until Element Is Visible    ${PRODUCT_GRID}
