@@ -24,3 +24,27 @@ ${ELEMENTS_SELECT_SIZE}             xpath://*[contains(@id, 'option-label-size-1
 ${ELEMENTS_SELECT_COLOR}            xpath://*[contains(@id,"option-label-color-93-")]
 ${ELEMENTS_FIRST_SELECT_COLOR}      xpath://*[@id="option-label-color-93-item-50"]
 ${BUTTON_PRODUCT_ADDTOCART}         xpath://*[@id="product-addtocart-button"]
+
+${LINK_CREATE_ACCOUNT}              xpath:/html/body/div[2]/header/div[1]/div/ul/li[3]/a
+${TITLE_CREATE_ACCOUNT_PAGE}        Create New Customer Account
+${URL_CREATE_ACCOUNT}               customer/account/create/
+
+${INPUT_FIRSTNAME}                  //*[@id="firstname"]
+${INPUT_LASTNAME}                   //*[@id="lastname"]
+${INPUT_EMAIL}                      //*[@id="email_address"]
+${INPUT_PASSWORD}                   //*[@id="password"]
+${INPUT_CONFIRM_PASSWORD}           //*[@id="password-confirmation"]
+${BUTTON_CREATE_ACCOUNT}            //*[@id="form-validate"]/div/div[1]/button
+${MAGE_ERRORS}                      //*[@class= 'mage-error']
+${TEXT_ACCOUNT_CREATED}             Thank you for registering with Main Website Store.
+
+${ACCOUNT_INFORMATION}              //*[@id="maincontent"]/div[2]/div[1]/div[3]/div[2]/div/div[1]
+
+${BUTTON_CUSTOMER_MENU}             xpath:/html/body/div[2]/header/div[1]/div/ul/li[2]/span/button
+${ELEMENT_CUSTOMER_NAME}            xpath:/html/body/div[2]/header/div[1]/div/ul/li[1]/span
+${LINK_SIGNOUT}                     (//a[contains(text(), 'Sign Out')])[1]
+${LINK_SIGNIN}                      (//a[contains(text(), 'Sign In')])[1]
+
+${LOGIN_INPUT_EMAIL}                //*[@id="email"]
+${LOGIN_INPUT_PASS}                 //*[@id="pass"]
+${BUTTON_LOGIN}                     //*[@id="send2"]

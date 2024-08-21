@@ -40,6 +40,32 @@ Add Product To Cart
     Element Should Be Enabled    ${BUTTON_PRODUCT_ADDTOCART} 
     Click Button                 ${BUTTON_PRODUCT_ADDTOCART}
 
+Go To New Customer Account Form
+    Click Link      ${LINK_CREATE_ACCOUNT}
+    Wait Until Location Contains    ${URL_CREATE_ACCOUNT}   timeout=15s
+    Title Should Be    ${TITLE_CREATE_ACCOUNT_PAGE} 
+
+Input New Customer Info
+    [Documentation]  Keyword for filling input fields of new customer form
+    [Arguments]  ${fname}   ${lname}  ${email}   ${password}
+    Input Text          ${INPUT_FIRSTNAME}       ${fname}
+    Input Text          ${INPUT_LASTNAME}        ${lname}
+    Input Text          ${INPUT_EMAIL}           ${email}
+    Input Password      ${INPUT_PASSWORD}        ${password}
+    Input Password      ${INPUT_CONFIRM_PASSWORD}     ${password}
+
+Login To Store
+    [Arguments]     ${email}  ${password}  ${name}
+    Click Element    ${LINK_SIGNIN}
+    Sleep   3
+    Input Text    ${LOGIN_INPUT_EMAIL}      ${email}
+    Input Password    ${LOGIN_INPUT_PASS}    ${password}
+    Click Button    ${BUTTON_LOGIN}
+    Wait Until Element Is Visible    ${ELEMENT_CUSTOMER_NAME}   timeout=15s
+    Element Should Contain    ${ELEMENT_CUSTOMER_NAME}    ${name}
+
+    
+
 
 
 
