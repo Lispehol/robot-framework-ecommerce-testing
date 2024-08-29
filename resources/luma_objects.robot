@@ -48,3 +48,9 @@ ${LINK_SIGNIN}                      (//a[contains(text(), 'Sign In')])[1]
 ${LOGIN_INPUT_EMAIL}                //*[@id="email"]
 ${LOGIN_INPUT_PASS}                 //*[@id="pass"]
 ${BUTTON_LOGIN}                     //*[@id="send2"]
+
+${SEARCH_PANEL}                     //*[@id="search"]
+${HEADER_SEARCH_RESULTS}            //*[@id="maincontent"]/div[1]/h1/span
+${SECTION_SEARCH_RESULTS}           //*[@id="maincontent"]/div[3]/div[1]/div[2]
+${MESSAGE_NO_SEARCH_RESULTS}        Your search returned no results.
+${TOOLBAR_AMOUNT}                   //*[@id="toolbar-amount"]

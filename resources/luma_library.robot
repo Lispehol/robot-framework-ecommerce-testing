@@ -13,7 +13,7 @@ Open Luma
 
 Go To Home Page
     ${title} =  Get Title
-    Run Keyword If    '${title}' != '${HOMEPAGE_TITLE}'
+    Run Keyword If    "${title}" != "${HOMEPAGE_TITLE}"
     ...    Go To    ${DEFAULT_URL}
     Title Should Be    ${HOMEPAGE_TITLE}
 
@@ -63,6 +63,19 @@ Login To Store
     Click Button    ${BUTTON_LOGIN}
     Wait Until Element Is Visible    ${ELEMENT_CUSTOMER_NAME}   timeout=15s
     Element Should Contain    ${ELEMENT_CUSTOMER_NAME}    ${name}
+
+Search Product
+    [Documentation]  Keyword for searching a product via search panel
+    ...
+    ...              Browser must be on home page
+    [Arguments]      ${product}
+    Click Element    ${SEARCH_PANEL}
+    Input Text       ${SEARCH_PANEL}    ${product}
+    Press Keys       ${SEARCH_PANEL}    ENTER
+    Wait Until Element Is Visible    ${HEADER_SEARCH_RESULTS}   timeout=${DEFAULT_TIMEOUT}
+    Element Should Contain    ${HEADER_SEARCH_RESULTS}   ${product}
+
+
 
     
 
