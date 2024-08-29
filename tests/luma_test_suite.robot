@@ -11,27 +11,26 @@ Test Tags           Search
 *** Variables ***
 ${FIRSTNAME}    Test
 ${LASTNAME}     Lname
-${EMAIL}        %USERNAME
-${PASSWORD}     %PASSWORD
+${EMAIL}        testemai@mail.net
+${PASSWORD}     validpw
+${PASSWORD2}    novalidpw
 ${PRODUCT1}     shoes
 ${PRODUCT2}     shopes
 
 *** Test Cases ***
+Successful Customer Login
+    Login To Store    ${EMAIL}  ${PASSWORD}
+    Validate Successful Login   ${LASTNAME}
+
+Unsuccessful Customer Login
+    Login To Store    ${EMAIL}  ${PASSWORD2}
+    Validate Unsuccessful Login
+
 Successfull Products Selection
     [Documentation]  Test case that tests if selecting products to the cart success
     Select Product To Cart
     Choose Options To Item    S
     Add Product To Cart
-
-Create An Account
-    [Documentation]  Testcase that tests creating new account
-    Go To New Customer Account Form
-    Input New Customer Info   ${FIRSTNAME}  ${LASTNAME}  ${EMAIL}   ${PASSWORD}
-    Click Button    ${BUTTON_CREATE_ACCOUNT}
-    Page Should Contain    ${TEXT_ACCOUNT_CREATED}
-
-Successful Customer Login
-    Login To Store    ${EMAIL}    ${PASSWORD}     ${LASTNAME}
 
 Successful Search
     [Documentation]  Testcase for testing that searchresults are found

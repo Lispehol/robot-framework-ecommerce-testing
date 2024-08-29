@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary
+Documentation                       Page objects of Luma demo store
 
 *** Variables ***
 ${DEFAULT_BROWSER}                  Chrome
@@ -48,6 +48,8 @@ ${LINK_SIGNIN}                      (//a[contains(text(), 'Sign In')])[1]
 ${LOGIN_INPUT_EMAIL}                //*[@id="email"]
 ${LOGIN_INPUT_PASS}                 //*[@id="pass"]
 ${BUTTON_LOGIN}                     //*[@id="send2"]
+${LOGIN_MESSAGE}                    //*[contains(@class, 'page messages')]
+${LOGIN_MESSAGE_TEXT_ERROR}         The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.
 
 ${SEARCH_PANEL}                     //*[@id="search"]
 ${HEADER_SEARCH_RESULTS}            //*[@id="maincontent"]/div[1]/h1/span
