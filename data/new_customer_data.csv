@@ -1,0 +1,7 @@
+${firstname};${lastname};${email};${password};${confirmpw};${message};
+testname;testlname;testuser@email.net;testPassword1!;${EMPTY};This is a required field.;
+testname;testlname;testuser@email.net;testPassword1!;testpw1;Please enter the same value again.;
+testname;;testuser@email.net;testPassword1!;testPassword1!;This is a required field.;
+testname;testlname;;testPassword1!;testPassword1!;This is a required field.;
+testname;testlname;testuser@email.net;testpw1;testpw1;Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored.;
+${EMPTY};testlname;testuser@email.net;testPassword1!;testPassword1!;This is a required field.;

@@ -22,9 +22,10 @@ Go To Home Page
 Select Product To Cart
     [Documentation]  Keyword for selecting the first available product to the shopping cart
     Wait Until Element Is Visible    ${PRODUCT_GRID}
-    ${product_name} =   Get Text    ${LINK_FIRST_PRODUCTITEM}
-    Click Link    ${LINK_FIRST_PRODUCTITEMPHOTO}
+    ${product_name} =   Get Text    ${LINK_FIRST_PRODUCT_ITEM}
+    Click Link    ${LINK_FIRST_PRODUCT_ITEM_PHOTO}
     Element Should Contain         ${PRODUCT_TITLE}     ${product_name}
+    RETURN    ${product_name}
 
 Choose Options To Item
     [Documentation]  Keyword for selecting required options when adding the first product
@@ -45,8 +46,17 @@ Add Product To Cart
     [Documentation]  Keyword for clicking the add cart button
     ...
     ...              Preconditions: Browser should be on product page
-    Element Should Be Enabled    ${BUTTON_PRODUCT_ADDTOCART} 
-    Click Button                 ${BUTTON_PRODUCT_ADDTOCART}
+    Element Should Be Enabled    ${BUTTON_PRODUCT_ADD_TO_CART}
+    Click Button                 ${BUTTON_PRODUCT_ADD_TO_CART}
+
+Check Cart
+    [Documentation]    Keyword for checking that the added item is found on the cart
+    [Arguments]    ${item}
+    Click Link       ${LINK_SHOPPINGCART}
+    Sleep    5
+    Element Should Be Visible    ${VIEW_EDIT_CART}
+    Click Element    ${VIEW_EDIT_CART}
+    Wait Until Element Contains    ${PRODUCT_ITEM_NAME}    ${item}    timeout=15s
 
 Go To New Customer Account Form
     [Documentation]   Keyword for goint to the new customer account form
@@ -56,12 +66,12 @@ Go To New Customer Account Form
 
 Input New Customer Info
     [Documentation]  Keyword for filling input fields of new customer form
-    [Arguments]  ${fname}   ${lname}  ${email}   ${password}
+    [Arguments]  ${fname}   ${lname}  ${email}   ${password}   ${password2}
     Input Text          ${INPUT_FIRSTNAME}       ${fname}
     Input Text          ${INPUT_LASTNAME}        ${lname}
     Input Text          ${INPUT_EMAIL}           ${email}
     Input Password      ${INPUT_PASSWORD}        ${password}
-    Input Password      ${INPUT_CONFIRM_PASSWORD}     ${password}
+    Input Password      ${INPUT_CONFIRM_PASSWORD}     ${password2}
 
 Create An Account
     [Documentation]  Testcase that tests creating new account
@@ -101,6 +111,23 @@ Search Product
     Press Keys       ${SEARCH_PANEL}    ENTER
     Wait Until Element Is Visible    ${HEADER_SEARCH_RESULTS}   timeout=${timeout}
     Element Should Contain    ${HEADER_SEARCH_RESULTS}   ${product}
+
+Go To Subscribe Page
+    Click Link      ${LINK_SUBSCRIBE}
+    Switch Window    NEW
+    Wait Until Location Contains    /subscribe/    timeout=15s
+
+Successful Subscribing
+    [Arguments]     ${email}
+    Input Text      ${SUBSCRIBE_INPUT_EMAIL}    ${email}
+    Click Element   ${SUBSCRIBE_SUBMIT}
+    Element Should Be Visible    ${SUBSCRIBE_RESPONSE_SUCCESS}
+
+Unsuccessful Subscribing
+    [Arguments]     ${email}
+    Input Text      ${SUBSCRIBE_INPUT_EMAIL}    ${email}
+    Click Element   ${SUBSCRIBE_SUBMIT}
+    Element Should Be Visible    ${SUBSCRIBE_EMAIL_ERROR}
 
 
     
